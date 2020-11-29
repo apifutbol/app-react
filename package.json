@@ -1,0 +1,60 @@
+{
+  "name": "@apifutbol/app-react",
+  "version": "1.0.0",
+  "private": true,
+  "description": "API Futbol React App",
+  "keywords": [
+    "app",
+    "react",
+    "apifutbol",
+    "pwa"
+  ],
+  "bugs": {
+    "url": "https://github.com/apifutbol/app-react/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apifutbol/app-react.git"
+  },
+  "license": "MIT",
+  "author": "Rage Brahimi <hey@rage.al>",
+  "scripts": {
+    "/*============ React ============*/": "============",
+    "build": "react-scripts build",
+    "start": "react-scripts start",
+    "/*============ Format ============*/": "============",
+    "format": "npm run prettier -- --write --list-different",
+    "lint": "eslint --ext .js,.jsx . --fix",
+    "prettier": "prettier \"**/*.+(js|jsx|json|css|html|md)\"",
+    "validate": "npm-run-all --parallel format lint"
+  },
+  "browserslist": [
+    "Android >= 7",
+    "IOS >= 11",
+    "Safari >= 11",
+    "Chrome >= 49",
+    "Firefox >= 31",
+    "Samsung >= 5"
+  ],
+  "dependencies": {
+    "dom7": "^3.0.0",
+    "framework7": "^6.0.0-beta.2",
+    "framework7-icons": "^3.0.1",
+    "framework7-react": "^6.0.0-beta.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "skeleton-elements": "^3.2.0",
+    "swiper": "^6.3.5"
+  },
+  "devDependencies": {
+    "eslint": "^7.14.0",
+    "react-scripts": "^4.0.1",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.2.1"
+  }
+}
