@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { f7, Navbar, Page, List, ListItem } from 'framework7-react';
 
 export default () => {
+  const preferences = useRef(null);
+
   const setThemeMode = () => {
-    const preferences = f7.form.convertToData('#preferences');
-    f7.$('html').removeClass('theme-dark theme-light').addClass(`theme-${preferences.theme}`);
+    preferences.current = f7.form.convertToData('#preferences');
+    f7.$('html')
+      .removeClass('theme-dark theme-light')
+      .addClass(`theme-${preferences.current.theme}`);
   };
 
   return (

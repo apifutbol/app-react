@@ -1,5 +1,6 @@
 import HomePage from '../pages/home.jsx';
 import LivePage from '../pages/live.jsx';
+import ExplorePage from '../pages/explore.jsx';
 import PanelPreferences from '../pages/panel-preferences.jsx';
 
 const routes = [
@@ -11,6 +12,11 @@ const routes = [
         path: '/',
         id: 'live',
         component: LivePage,
+      },
+      {
+        path: '/explore/',
+        id: 'explore',
+        component: ExplorePage,
       },
     ],
   },

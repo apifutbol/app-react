@@ -13,13 +13,26 @@ export default () => {
       </Navbar>
       {/* Bottom Toolbar */}
       <Toolbar bottom tabbar>
-        <Link tabLink href="./" routeTabId="live" tabLinkActive>
-          Live
-        </Link>
+        <Link
+          tabLink
+          href="/"
+          routeTabId="live"
+          iconIos="f7:sportscourt"
+          iconMd="f7:sportscourt"
+          tabLinkActive
+        />
+        <Link
+          tabLink
+          href="/explore/"
+          routeTabId="explore"
+          iconIos="f7:search"
+          iconMd="f7:search"
+        />
       </Toolbar>
       {/* Routable Tabs */}
       <Tabs routable swipeable>
         <Tab id="live" tabActive />
+        <Tab id="explore" />
       </Tabs>
     </Page>
   );
