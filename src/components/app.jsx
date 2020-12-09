@@ -1,20 +1,22 @@
 import React from 'react';
-
-import { App, View } from 'framework7-react';
-
+import { App, Panel, View } from 'framework7-react';
 import routes from '../js/routes';
 
-const ApiFutbol = () => {
-  const f7params = {
-    name: 'API Futbol React App',
-    theme: 'auto',
-    routes,
-  };
+export default () => {
+  const theme = 'auto';
 
   return (
-    <App {...f7params}>
+    <App
+      theme={theme}
+      autoDarkTheme={true}
+      iosTranslucentBars={false}
+      iosTranslucentModals={false}
+      routes={routes}
+    >
+      <Panel right reveal resizable>
+        <View url="/panel-preferences/" />
+      </Panel>
       <View main className="safe-areas" url="/" />
     </App>
   );
 };
-export default ApiFutbol;
