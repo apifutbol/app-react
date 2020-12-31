@@ -35,8 +35,8 @@ export default () => {
         {/* Switch Theme Color */}
         <ListItem title="Color" smartSelect smartSelectInit>
           <select name="color" onChange={setThemeColor}>
-            <option value="green">Green</option>
             <option value="blue">Blue</option>
+            <option value="green">Green</option>
             <option value="red">Red</option>
           </select>
         </ListItem>
