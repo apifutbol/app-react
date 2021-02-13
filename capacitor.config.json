@@ -1,0 +1,13 @@
+{
+  "appId": "com.apifutbol.appreact",
+  "appName": "@apifutbol/app-react",
+  "bundledWebRuntime": false,
+  "npmClient": "yarn",
+  "webDir": "build",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}

@@ -7,6 +7,7 @@ export default () => {
 
   return (
     <App
+      id="com.apifutbol.appreact"
       theme={theme}
       autoDarkTheme={true}
       iosTranslucentBars={false}
