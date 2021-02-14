@@ -1,22 +1,30 @@
 import React from 'react';
-import { App, Panel, View } from 'framework7-react';
+import { f7ready, App, View } from 'framework7-react';
+import { Plugins } from '@capacitor/core';
 import routes from '../js/routes';
+import store from '../js/store';
+
+const { Device } = Plugins;
 
 export default () => {
-  const theme = 'auto';
+  const f7params = {
+    id: 'com.apifutbol.appreact',
+    theme: 'auto',
+    autoDarkTheme: true,
+    iosTranslucentBars: true,
+    iosTranslucentModals: true,
+    routes,
+    store,
+  };
+
+  f7ready(async (f7) => {
+    const { uuid } = await Device.getInfo();
+
+    f7.store.dispatch('setUuid', uuid);
+  });
 
   return (
-    <App
-      id="com.apifutbol.appreact"
-      theme={theme}
-      autoDarkTheme={true}
-      iosTranslucentBars={false}
-      iosTranslucentModals={false}
-      routes={routes}
-    >
-      <Panel right reveal resizable>
-        <View url="/panel-preferences/" />
-      </Panel>
+    <App {...f7params}>
       <View main className="safe-areas" url="/" />
     </App>
   );

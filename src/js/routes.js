@@ -1,7 +1,6 @@
 import HomePage from '../pages/home.jsx';
 import LivePage from '../pages/live.jsx';
 import ExplorePage from '../pages/explore.jsx';
-import PanelPreferences from '../pages/panel-preferences.jsx';
 
 const routes = [
   {
@@ -19,10 +18,6 @@ const routes = [
         component: ExplorePage,
       },
     ],
-  },
-  {
-    path: '/panel-preferences/',
-    component: PanelPreferences,
   },
 ];
 

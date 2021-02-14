@@ -1,5 +1,5 @@
 import React from 'react';
-import { Page, Navbar, NavTitle, NavRight, Toolbar, Link, Tabs, Tab } from 'framework7-react';
+import { Page, Navbar, NavTitle, Toolbar, Link, Tabs, Tab } from 'framework7-react';
 
 export default () => {
   return (
@@ -7,9 +7,6 @@ export default () => {
       {/* Top Navbar */}
       <Navbar>
         <NavTitle>API Futbol</NavTitle>
-        <NavRight>
-          <Link panelOpen="right" iconIos="f7:menu" iconAurora="f7:menu" iconMd="material:menu" />
-        </NavRight>
       </Navbar>
       {/* Bottom Toolbar */}
       <Toolbar bottom tabbar>
