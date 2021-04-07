@@ -34,8 +34,8 @@ export default () => {
         </Toolbar>
         {/* Views */}
         <View id="view-home" main tab tabActive url="/" />
-        <View id="view-explore" main tab url="/explore/" />
-        <View id="view-live" main tab url="/live/" />
+        <View id="view-explore" tab url="/explore/" />
+        <View id="view-live" tab url="/live/" />
       </Views>
     </App>
   );
