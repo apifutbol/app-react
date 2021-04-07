@@ -1,31 +1,42 @@
 import React from 'react';
-import { f7ready, App, View } from 'framework7-react';
-import { Plugins } from '@capacitor/core';
-import routes from '../js/routes';
-import store from '../js/store';
+import { f7ready, App, Views, View, Toolbar, Link } from 'framework7-react';
+import { Device } from '@capacitor/device';
+import { Storage } from '@capacitor/storage';
 
-const { Device } = Plugins;
+import routes from '../js/routes';
 
 export default () => {
   const f7params = {
     id: 'com.apifutbol.appreact',
     theme: 'auto',
-    autoDarkTheme: true,
     iosTranslucentBars: true,
     iosTranslucentModals: true,
     routes,
-    store,
   };
 
-  f7ready(async (f7) => {
+  f7ready(async () => {
     const { uuid } = await Device.getInfo();
 
-    f7.store.dispatch('setUuid', uuid);
+    await Storage.set({
+      key: 'uuid',
+      value: uuid,
+    });
   });
 
   return (
     <App {...f7params}>
-      <View main className="safe-areas" url="/" />
+      <Views tabs className="safe-areas" themeDark>
+        {/* Bottom Toolbar */}
+        <Toolbar bottom tabbar>
+          <Link tabLink="#view-home" iconIos="f7:sportscourt" iconMd="f7:sportscourt" />
+          <Link tabLink="#view-explore" iconIos="f7:search" iconMd="f7:search" />
+          <Link tabLink="#view-live" iconIos="f7:app_badge" iconMd="f7:app_badge" />
+        </Toolbar>
+        {/* Views */}
+        <View id="view-home" main tab tabActive url="/" />
+        <View id="view-explore" main tab url="/explore/" />
+        <View id="view-live" main tab url="/live/" />
+      </Views>
     </App>
   );
 };
