@@ -6,18 +6,14 @@ const routes = [
   {
     path: '/',
     component: HomePage,
-    tabs: [
-      {
-        path: '/',
-        id: 'live',
-        component: LivePage,
-      },
-      {
-        path: '/explore/',
-        id: 'explore',
-        component: ExplorePage,
-      },
-    ],
+  },
+  {
+    path: '/live/',
+    component: LivePage,
+  },
+  {
+    path: '/explore/',
+    component: ExplorePage,
   },
 ];
 
