@@ -35,6 +35,5 @@ Thumbs.db
 package-lock.json
 yarn.lock
 
-
-
-
+# Capacitor
+ios
