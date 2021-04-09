@@ -1,5 +1,14 @@
 import React, { useState } from 'react';
-import { Page, Navbar, List, ListItem, SkeletonBlock } from 'framework7-react';
+import {
+  Page,
+  Navbar,
+  NavLeft,
+  NavTitle,
+  Link,
+  List,
+  ListItem,
+  SkeletonBlock,
+} from 'framework7-react';
 
 export default () => {
   const [loading, setLoading] = useState(false);
@@ -17,7 +26,12 @@ export default () => {
   return (
     <Page name="explore" pageContent={true} ptr ptrMousewheel={true} onPtrRefresh={ptr}>
       {/* Top Navbar */}
-      <Navbar title="Explore" />
+      <Navbar sliding={false}>
+        <NavLeft>
+          <Link panelOpen="left" iconIos="f7:menu" iconAurora="f7:menu" iconMd="material:menu" />
+        </NavLeft>
+        <NavTitle sliding>Explore</NavTitle>
+      </Navbar>
       {/* Page Content */}
       {loading ? (
         <List mediaList v-if="loading">

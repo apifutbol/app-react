@@ -6,10 +6,9 @@ import {
   View,
   Page,
   Navbar,
-  NavRight,
   Toolbar,
   Link,
-  Popup,
+  Panel,
   BlockTitle,
   List,
   ListItem,
@@ -55,11 +54,6 @@ export default () => {
           <Link tabLink="#view-home" iconIos="f7:sportscourt" iconMd="f7:sportscourt" />
           <Link tabLink="#view-explore" iconIos="f7:search" iconMd="f7:search" />
           <Link tabLink="#view-live" iconIos="f7:app_badge" iconMd="f7:app_badge" />
-          <Link
-            popupOpen="#preferences"
-            iconIos="f7:square_line_vertical_square"
-            iconMd="f7:square_line_vertical_square"
-          />
         </Toolbar>
         {/* Views */}
         <View id="view-home" main name={darkMode} tab tabActive url="/" />
@@ -67,15 +61,11 @@ export default () => {
         <View id="view-live" tab url="/live/" />
       </Views>
 
-      {/* Preferences Popup */}
-      <Popup push id="preferences" colorTheme="green" themeDark={darkMode}>
+      {/* Preferences Panel */}
+      <Panel left cover resizable colorTheme="green" themeDark={darkMode}>
         <View>
           <Page>
-            <Navbar title="Preferences">
-              <NavRight>
-                <Link popupClose>Close</Link>
-              </NavRight>
-            </Navbar>
+            <Navbar title="Preferences" />
             <BlockTitle>Theme</BlockTitle>
             <List>
               <ListItem
@@ -88,7 +78,7 @@ export default () => {
             </List>
           </Page>
         </View>
-      </Popup>
+      </Panel>
     </App>
   );
 };
