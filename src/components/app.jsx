@@ -49,7 +49,7 @@ export default () => {
 
   return (
     <App {...f7params}>
-      <Views tabs className="safe-areas" themeDark={darkMode}>
+      <Views tabs className="safe-areas" colorTheme="green" themeDark={darkMode}>
         {/* Bottom Toolbar */}
         <Toolbar bottom tabbar>
           <Link tabLink="#view-home" iconIos="f7:sportscourt" iconMd="f7:sportscourt" />
@@ -68,7 +68,7 @@ export default () => {
       </Views>
 
       {/* Preferences Popup */}
-      <Popup push id="preferences" themeDark={darkMode}>
+      <Popup push id="preferences" colorTheme="green" themeDark={darkMode}>
         <View>
           <Page>
             <Navbar title="Preferences">
