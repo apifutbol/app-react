@@ -2,6 +2,6 @@
   "appId": "com.apifutbol.appreact",
   "appName": "@apifutbol/app-react",
   "bundledWebRuntime": false,
-  "npmClient": "yarn",
+  "npmClient": "npm",
   "webDir": "build"
 }
