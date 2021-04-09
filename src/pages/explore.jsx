@@ -5,6 +5,10 @@ import {
   NavLeft,
   NavTitle,
   Link,
+  Fab,
+  FabButtons,
+  FabButton,
+  Icon,
   List,
   ListItem,
   SkeletonBlock,
@@ -13,7 +17,7 @@ import {
 export default () => {
   const [loading, setLoading] = useState(false);
 
-  const ptr = (done) => {
+  const refresh = (done) => {
     setLoading(true);
 
     setTimeout(() => {
@@ -24,7 +28,7 @@ export default () => {
   };
 
   return (
-    <Page name="explore" pageContent={true} ptr ptrMousewheel={true} onPtrRefresh={ptr}>
+    <Page name="explore" pageContent={true} ptr ptrMousewheel={true} onPtrRefresh={refresh}>
       {/* Top Navbar */}
       <Navbar sliding={false}>
         <NavLeft>
@@ -32,6 +36,16 @@ export default () => {
         </NavLeft>
         <NavTitle sliding>Explore</NavTitle>
       </Navbar>
+      {/* Fab Buttons */}
+      <Fab position="right-bottom" slot="fixed">
+        <Icon ios="f7:plus" aurora="f7:plus" md="f7:plus" />
+        <Icon ios="f7:xmark" aurora="f7:xmark" md="f7:xmark" />
+        <FabButtons position="top">
+          <FabButton label="Refresh" fabClose={true} onClick={refresh}>
+            1
+          </FabButton>
+        </FabButtons>
+      </Fab>
       {/* Page Content */}
       {loading ? (
         <List mediaList v-if="loading">
