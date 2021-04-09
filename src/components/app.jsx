@@ -51,9 +51,24 @@ export default () => {
       <Views tabs className="safe-areas" colorTheme="green" themeDark={darkMode}>
         {/* Bottom Toolbar */}
         <Toolbar bottom tabbar>
-          <Link tabLink="#view-home" iconIos="f7:sportscourt" iconMd="f7:sportscourt" />
-          <Link tabLink="#view-explore" iconIos="f7:search" iconMd="f7:search" />
-          <Link tabLink="#view-live" iconIos="f7:app_badge" iconMd="f7:app_badge" />
+          <Link
+            tabLink="#view-home"
+            iconIos="f7:sportscourt"
+            iconAurora="f7:sportscourt"
+            iconMd="f7:sportscourt"
+          />
+          <Link
+            tabLink="#view-explore"
+            iconIos="f7:search"
+            iconAurora="f7:search"
+            iconMd="f7:search"
+          />
+          <Link
+            tabLink="#view-live"
+            iconIos="f7:app_badge"
+            iconAurora="f7:app_badge"
+            iconMd="f7:app_badge"
+          />
         </Toolbar>
         {/* Views */}
         <View id="view-home" main name={darkMode} tab tabActive url="/" />
