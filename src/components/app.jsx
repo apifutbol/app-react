@@ -14,13 +14,15 @@ import {
   ListItem,
 } from 'framework7-react';
 import { Storage } from '@capacitor/storage';
+import { getThemeMode, getColorMode } from '../utils/theme';
 
 import routes from '../js/routes';
 
 export default () => {
-  const [darkMode, setDarkMode] = useState(true);
+  const [themeMode, setThemeMode] = useState(true);
+  const [colorMode, setColorMode] = useState('green');
 
-  const f7params = {
+  const params = {
     id: 'com.apifutbol.appreact',
     theme: 'auto',
     iosTranslucentBars: true,
@@ -28,27 +30,30 @@ export default () => {
     routes,
   };
 
-  const setTheme = async (e) => {
+  const setMode = async (e) => {
     const checked = e.target.checked;
 
     await Storage.set({
-      key: 'darkMode',
+      key: 'themeMode',
       value: checked,
     });
 
-    setDarkMode(checked);
+    setThemeMode(getThemeMode(checked));
+    setColorMode(getColorMode(checked));
   };
 
   f7ready(async () => {
-    const { value: mode } = await Storage.get({ key: 'darkMode' });
+    const { value: mode } = await Storage.get({ key: 'themeMode' });
+
     if (mode) {
-      setDarkMode(JSON.parse(mode));
+      setThemeMode(getThemeMode(mode));
+      setColorMode(getColorMode(mode));
     }
   });
 
   return (
-    <App {...f7params}>
-      <Views tabs className="safe-areas" colorTheme="green" themeDark={darkMode}>
+    <App {...params}>
+      <Views tabs className="safe-areas" colorTheme={colorMode} themeDark={themeMode}>
         {/* Bottom Toolbar */}
         <Toolbar bottom tabbar>
           <Link
@@ -71,13 +76,13 @@ export default () => {
           />
         </Toolbar>
         {/* Views */}
-        <View id="view-home" main name={darkMode} tab tabActive url="/" />
-        <View id="view-explore" tab url="/explore/" />
-        <View id="view-live" tab url="/live/" />
+        <View id="view-home" main name="Home" tab tabActive url="/" />
+        <View id="view-explore" name="Explore" tab url="/explore/" />
+        <View id="view-live" name="Live" tab url="/live/" />
       </Views>
 
       {/* Preferences Panel */}
-      <Panel left cover resizable colorTheme="green" themeDark={darkMode}>
+      <Panel left cover resizable colorTheme={colorMode} themeDark={themeMode}>
         <View>
           <Page>
             <Navbar title="Preferences" />
@@ -85,10 +90,10 @@ export default () => {
             <List>
               <ListItem
                 checkbox
-                title="Dark Mode"
-                name="darkmode-checkbox"
-                checked={darkMode === true}
-                onChange={(e) => setTheme(e)}
+                title="Theme Mode"
+                name="theme-mode-checkbox"
+                checked={themeMode === true}
+                onChange={(e) => setMode(e)}
               />
             </List>
           </Page>
